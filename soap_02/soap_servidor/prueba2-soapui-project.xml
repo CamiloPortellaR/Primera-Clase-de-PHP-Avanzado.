@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d61dfc1f-1a77-4c14-9610-3478c599becb" activeEnvironment="Default" name="prueba2" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="9eb03460-0130-4cb2-b485-2a0d45c5c667" wsaVersion="NONE" name="MiPrimerServicioWebBinding" type="wsdl" bindingName="{urn:miserviciowsdl}MiPrimerServicioWebBinding" soapVersion="1_1" anonymous="optional" definition="http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php?wsdl"><con:part><con:url>http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="urn:miserviciowsdl" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:miserviciowsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="urn:miserviciowsdl">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+    </xsd:schema>
+  </types>
+  <message name="MiFuncionRequest">
+    <part name="num1" type="xsd:integer"/>
+    <part name="num2" type="xsd:integer"/>
+  </message>
+  <message name="MiFuncionResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <portType name="MiPrimerServicioWebPortType">
+    <operation name="MiFuncion">
+      <input message="tns:MiFuncionRequest"/>
+      <output message="tns:MiFuncionResponse"/>
+    </operation>
+  </portType>
+  <binding name="MiPrimerServicioWebBinding" type="tns:MiPrimerServicioWebPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="MiFuncion">
+      <soap:operation soapAction="http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php/MiFuncion" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:miserviciowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:miserviciowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="MiPrimerServicioWeb">
+    <port name="MiPrimerServicioWebPort" binding="tns:MiPrimerServicioWebBinding">
+      <soap:address location="http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php</con:endpoint></con:endpoints><con:operation id="1e41fec9-f96a-4be3-8b5e-56dee08a8b82" isOneWay="false" action="http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php/MiFuncion" name="MiFuncion" bindingOperationName="MiFuncion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="db8d6851-eed5-4e29-b7ad-25e3c8647b63" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:miserviciowsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:MiFuncion soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <num1 xsi:type="xsd:integer">?</num1>\r
+         <num2 xsi:type="xsd:integer">?</num2>\r
+      </urn:MiFuncion>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://192.168.1.37/clase_01/soap_02/soap_servidor/webservice.php/MiFuncion"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
